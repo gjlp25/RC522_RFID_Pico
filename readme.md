@@ -35,7 +35,7 @@ This project uses a Raspberry Pi Pico W, an RC522 RFID module, LEDs, and a piezo
 
 1. Install MicroPython on your Raspberry Pi Pico W.
 2. Install the MFRC522 library for MicroPython.
-3. Upload the `main.py`, `secrets.py`, and `lib` folder to your Pico W.
+3. Upload the `main.py`, `secrets.h`, and `lib` folder to your Pico W.
 
 ## `main.py` Overview
 
@@ -47,20 +47,20 @@ The `main.py` script initializes the RFID reader, LEDs, and buzzer. It maintains
 - `beep_buzzer(times, delay)`: Generates a beep sound with the specified number of times and delay.
 - `handle_card(card_id, authorized)`: Handles the logic for both authorized and unauthorized cards, including lighting the appropriate LED, beeping, and sending an MQTT message.
 
-## `secrets.py` Overview
+## `secrets.h` Overview
 
-The `secrets.py` file stores sensitive information such as WiFi and MQTT credentials.
+The `secrets.h` file stores sensitive information such as WiFi and MQTT credentials.
 
-### Example `secrets.py`
+### Example `secrets.h`
 
-```python
-wifi_ssid = 'your_wifi_ssid'
-wifi_password = 'your_wifi_password'
-mqtt_server = 'your_mqtt_server'
-mqtt_port = 1883
-mqtt_client_id = 'your_mqtt_client_id'
-mqtt_user = 'your_mqtt_user'
-mqtt_password = 'your_mqtt_password'
+```cpp
+#define WIFI_SSID "your_wifi_ssid"
+#define WIFI_PASSWORD "your_wifi_password"
+#define MQTT_SERVER "your_mqtt_server"
+#define MQTT_PORT 1883
+#define MQTT_CLIENT_ID "your_mqtt_client_id"
+#define MQTT_USER "your_mqtt_user"
+#define MQTT_PASSWORD "your_mqtt_password"
 ```
 
 ## Home Assistant Configuration
@@ -127,7 +127,7 @@ graph TD
 ## Customization
 
 - Update the `AUTHORIZED_CARDS` dictionary in `main.py` with your actual tag UIDs and names.
-- Update the WiFi and MQTT credentials in `secrets.py`.
+- Update the WiFi and MQTT credentials in `secrets.h`.
 
 ## Troubleshooting
 
