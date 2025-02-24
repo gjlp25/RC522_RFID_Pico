@@ -35,7 +35,7 @@ This project uses a Raspberry Pi Pico W, an RC522 RFID module, LEDs, and a piezo
 
 1. Install MicroPython on your Raspberry Pi Pico W.
 2. Install the MFRC522 library for MicroPython.
-3. Upload the `main.py` and `secrets.py` files to your Pico W.
+3. Upload the `main.py`, `secrets.py`, and `lib` folder to your Pico W.
 
 ## `main.py` Overview
 
@@ -45,8 +45,7 @@ The `main.py` script initializes the RFID reader, LEDs, and buzzer. It maintains
 
 - `reset_leds()`: Turns off all LEDs.
 - `beep_buzzer(times, delay)`: Generates a beep sound with the specified number of times and delay.
-- `handle_authorized_card(card_id)`: Handles the logic for an authorized card, including lighting the green LED, beeping, and sending an MQTT message.
-- `handle_unauthorized_card(card_id)`: Handles the logic for an unauthorized card, including lighting the red LED, beeping, and sending an MQTT message.
+- `handle_card(card_id, authorized)`: Handles the logic for both authorized and unauthorized cards, including lighting the appropriate LED, beeping, and sending an MQTT message.
 
 ## `secrets.py` Overview
 
