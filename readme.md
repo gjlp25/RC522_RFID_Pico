@@ -16,19 +16,19 @@ This project uses a Raspberry Pi Pico W, an RC522 RFID module, LEDs, and a piezo
 ## Wiring
 
 - **RC522 RFID module:**
-  - SCK to GP2
-  - MOSI to GP3
+  - SCK to GP6
+  - MOSI to GP7
   - MISO to GP4
   - SDA (CS) to GP5
-  - RST to GP6
+  - RST to GP22
 - **Green LED:**
-  - Anode to GP15 (with resistor)
+  - Anode to GP12 (with resistor)
   - Cathode to GND
 - **Red LED:**
-  - Anode to GP14 (with resistor)
+  - Anode to GP13 (with resistor)
   - Cathode to GND
 - **Piezo buzzer:**
-  - Positive to GP13
+  - Positive to GP10
   - Negative to GND
 
 ## Software Setup
@@ -49,7 +49,7 @@ The `main.py` script initializes the RFID reader, LEDs, and buzzer. It maintains
 
 ## `secrets.py` Overview
 
-The `secrets.py` file stores sensitive information such as WiFi and MQTT credentials. This file is used by the `main.py` and `mqtt_test.py` scripts to access these credentials.
+The `secrets.py` file stores sensitive information such as WiFi and MQTT credentials. This file is used by the `main.py` script to access these credentials.
 
 ### Example `secrets.py`
 
@@ -61,6 +61,7 @@ mqtt_port = 1883
 mqtt_client_id = 'your_mqtt_client_id'
 mqtt_user = 'your_mqtt_user'
 mqtt_password = 'your_mqtt_password'
+mqtt_topic = 'rc522/card'
 ```
 
 ## Home Assistant Configuration
